@@ -57,7 +57,7 @@ gulp.task('styles', function() {
 gulp.task('watch', function() {
   gulp.watch('src/scripts/**/*.js', ['scripts']);
   gulp.watch('src/styles/**/*.scss', ['styles']);
-  gulp.watch(['src/*.html'], ['copy']);
+  gulp.watch(['src/**/*.html'], ['copy']);
   gulp.watch(['src/images/**.*'], ['images']);
 });
 
