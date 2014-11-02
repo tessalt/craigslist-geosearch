@@ -11,6 +11,12 @@ html, body {
 }
 
 #map {
-  width: 800px;
+  width: 50%;
   height: 700px;
+  float: left;
+}
+
+#options {
+  width: 50%;
+  float: right;
 }

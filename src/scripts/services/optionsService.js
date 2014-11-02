@@ -17,7 +17,7 @@ var optionsService = function() {
 
   return {
     setOptions: _setOptions,
-    _getOptions: _getOptions
+    getOptions: _getOptions
   }
 
 }

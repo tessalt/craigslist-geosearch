@@ -6,14 +6,7 @@
 </head>
 <body>
 
-<div ng-controller="OptionsController">
-
-  <button ng-click="createPolygon()">Define boundaries</button>
-  <button ng-click="editPolygon()">Edit boundaries</button>
-  <button ng-click="doneEditing()">Done editing</button>
-  <div id="map"></div>
-
-</div>
+  <div ui-view></div>
 
 <script src="scripts/main.js"></script>
 </body>

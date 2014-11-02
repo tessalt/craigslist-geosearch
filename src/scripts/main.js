@@ -4,16 +4,23 @@
       L = require('leaflet');
 
   var angular = require('angular');
+  require('angular-ui-router');
   require('leaflet_draw');
 
   var OptionsController = require('./controllers/OptionsController');
+  var MainController = require('./controllers/MainController');
 
-  var optionsService = require('./services/optionsService');
+  var app = angular.module('listingScraper', ['ui.router']);
 
-  var app = angular.module('listingScraper', []);
+  app.controller('OptionsController', ['$scope', OptionsController]);
 
-  app.factory('optionsService', [optionsService]);
+  app.config(function($stateProvider, $urlRouterProvider) {
 
-  app.controller('OptionsController', ['$scope', 'optionsService', OptionsController]);
+    $stateProvider.state('options', {
+      url: '/options',
+      templateUrl: 'options.html'
+    })
+
+  });
 
 })();

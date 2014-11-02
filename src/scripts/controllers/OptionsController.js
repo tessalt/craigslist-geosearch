@@ -1,4 +1,6 @@
-var OptionsController = function($scope, optionsService) {
+var OptionsController = function($scope) {
+
+  $scope.options = {};
 
   var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -33,18 +35,20 @@ var OptionsController = function($scope, optionsService) {
   map.on('draw:created', function(event) {
     var layer = event.layer;
     drawnItems.addLayer(layer);
-    var options = {};
-    options.coordinates = layer._latlngs
-    optionsService.setOptions(options);
+    $scope.options.coordinates = layer._latlngs
+    $scope.$apply();
   });
 
   map.on('draw:edited', function(event) {
     var layers = event.layers;
     layers.eachLayer(function (layer) {
-      var options = {};
-      options.coordinates = layer._latlngs
-      optionsService.setOptions(options);
+      $scope.options.coordinates = layer._latlngs
     });
+  });
+
+  var edit = new L.EditToolbar.Edit(map, {
+    featureGroup: drawControl.options.edit.featureGroup,
+    selectedPathOptions: drawControl.options.edit.selectedPathOptions
   });
 
   $scope.createPolygon = function() {
@@ -52,17 +56,16 @@ var OptionsController = function($scope, optionsService) {
   }
 
   $scope.editPolygon = function() {
-    new L.EditToolbar.Edit(map, {
-      featureGroup: drawControl.options.edit.featureGroup,
-      selectedPathOptions: drawControl.options.edit.selectedPathOptions
-    }).enable();
+    edit.enable();
   }
 
   $scope.doneEditing = function() {
-    new L.EditToolbar.Edit(map, {
-      featureGroup: drawControl.options.edit.featureGroup,
-      selectedPathOptions: drawControl.options.edit.selectedPathOptions
-    }).save();
+    edit.disable();
+    edit.save();
+  }
+
+  $scope.saveOptions = function() {
+    console.log($scope.options);
   }
 
 };

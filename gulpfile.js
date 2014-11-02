@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('copy', function() {
-  return gulp.src('index.html', {cwd: src})
+  return gulp.src(['index.html', 'templates/*.html'], {cwd: src})
   .pipe(gulp.dest(dist));
 });
 

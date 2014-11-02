@@ -1,0 +1,18 @@
+<div ng-controller="OptionsController">
+
+  <div id="map"></div>
+  <div id="options">
+    <button ng-click="createPolygon()">Define boundaries</button>
+    <button ng-click="editPolygon()">Edit boundaries</button>
+    <button ng-click="doneEditing()">Done editing</button>
+    <p>{{options.coordinates}}</p>
+    <label>max price</label>
+    <input type="text" ng-model="options.maxPrice">
+    <label>min bedrooms</label>
+    <input type="text" ng-model="options.minBeds">
+
+    <button ng-click="saveOptions()">Search</button>
+  </div>
+
+
+</div>
