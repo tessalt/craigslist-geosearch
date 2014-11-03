@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" ng-controller="NavController">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
@@ -16,8 +16,8 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="options">Options</a></li>
-        <li><a ui-sref="listings">Listings</a></li>
+        <li><a ng-click="goToOptions()">Options</a></li>
+        <li><a ng-click="goToListings()">Listings</a></li>
       </ul>
   </div>
 </nav>

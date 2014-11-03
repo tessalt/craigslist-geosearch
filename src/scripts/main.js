@@ -7,11 +7,14 @@
   require('angular-ui-router');
   require('leaflet_draw');
 
+  var NavController = require('./controllers/NavController');
   var OptionsController = require('./controllers/OptionsController');
   var ListingsController = require('./controllers/ListingsController');
   var listingItem = require('./directives/listingItem');
 
   var app = angular.module('listingScraper', ['ui.router']);
+
+  app.controller('NavController', ['$scope', '$state', NavController]);
 
   app.controller('OptionsController', ['$scope', '$state', OptionsController]);
 
