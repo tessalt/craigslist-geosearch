@@ -27,16 +27,18 @@ figure {
   width: 100%;
 }
 
-#options {
-
+a.link {
+  cursor: pointer;
 }
 
-.container {
-  overflow: hidden;
+.options-form {
+  padding: 20px 0;
 }
 
-.col-half {
-  width: 50%;
-  float: left;
+.form-group {
+  padding-right: 20px;
 }
 
+.control-label {
+  padding-right: 10px;
+}

@@ -4,6 +4,8 @@ var ListingsController = function($scope, $state, $http, $sce) {
 
   $scope.options = $state.params;
 
+  $scope.loading = true;
+
   $scope.editOptions = function() {
     $state.transitionTo('options', $scope.options);
   }
@@ -22,6 +24,7 @@ var ListingsController = function($scope, $state, $http, $sce) {
     params: $scope.options
   }).success(function(data){
     $scope.listings = data;
+    $scope.loading = false;
   });
 
 }

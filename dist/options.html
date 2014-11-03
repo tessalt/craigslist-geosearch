@@ -1,14 +1,20 @@
 <div ng-controller="OptionsController">
 
   <div id="map"></div>
-  <div id="options">
-    <label>max price</label>
-    <input type="text" ng-model="options.maxprice">
-    <label>min bedrooms</label>
-    <input type="text" ng-model="options.minrooms">
-    <label>City</label>
-    <input type="text" ng-model="options.city">
-    <button ng-click="saveOptions()">Search</button>
+  <div id="options" class="options-form form-inline">
+    <div class="form-group">
+      <label class="control-label">Max price</label>
+      <input class="form-control" type="text" ng-model="options.maxprice">
+    </div>
+    <div class="form-group">
+      <label class="control-label">Bedrooms</label>
+      <input class="form-control" type="text" ng-model="options.minrooms">
+    </div>
+    <div class="form-group">
+      <label class="control-label">City</label>
+      <input class="form-control" type="text" ng-model="options.city">
+    </div>
+    <button class="btn btn-primary" ng-click="saveOptions()">Search</button>
   </div>
 
 

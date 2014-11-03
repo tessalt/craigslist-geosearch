@@ -1,17 +1,19 @@
 <div ng-controller="ListingsController">
-<h1>listings</h1>
+<div class="page-header">
+<h1>Listings</h1>
+</div>
 
-<div class="container">
-  <ul class="col-half">
-  <li ng-repeat="listing in listings">
-    <a ng-click="showPreview(listing)">{{listing.PostingTitle}}</a>
-  </li>
-</ul>
+<div class="row">
+  <div ng-hide="!loading" class="progress"><div class="progress-bar progress-bar-striped active" style="width: 100%"></div></div>
+  <div class="col-lg-6">
+  <div class="list-group">
+    <a ng-repeat="listing in listings" class="list-group-item link" ng-click="showPreview(listing)">{{listing.PostingTitle}}</a>
+</div>
+</div>
 
-<div class="col-half" ng-bind-html="preview">
+<div class="col-lg-6" ng-bind-html="preview">
 
 </div>
 
 </div>
-<button ng-click="editOptions()">edit options</button>
 </div>
