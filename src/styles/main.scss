@@ -18,24 +18,17 @@ html, body {
   height: 100%;
 }
 
-a {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 figure {
   margin: 0;
 }
 
 #map {
-  width: 50%;
-  height: 700px;
-  float: left;
+  height: 500px;
+  width: 100%;
 }
 
 #options {
-  width: 50%;
-  float: right;
+
 }
 
 .container {
@@ -46,3 +39,4 @@ figure {
   width: 50%;
   float: left;
 }
+

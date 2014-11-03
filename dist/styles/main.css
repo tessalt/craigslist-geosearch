@@ -661,21 +661,12 @@ body {
 html, body {
   height: 100%; }
 
-a {
-  text-decoration: underline;
-  cursor: pointer; }
-
 figure {
   margin: 0; }
 
 #map {
-  width: 50%;
-  height: 700px;
-  float: left; }
-
-#options {
-  width: 50%;
-  float: right; }
+  height: 500px;
+  width: 100%; }
 
 .container {
   overflow: hidden; }

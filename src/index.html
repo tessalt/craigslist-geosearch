@@ -2,11 +2,27 @@
 <html ng-app="listingScraper">
 <head>
   <title></title>
+  <link rel="stylesheet" href="styles/bootstrap.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-  <div ui-view></div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        Craigslist Geosearch thing
+      </a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="options">Options</a></li>
+        <li><a ui-sref="listings">Listings</a></li>
+      </ul>
+  </div>
+</nav>
+
+  <div class="container" ui-view></div>
 
 <script src="scripts/main.js"></script>
 </body>
