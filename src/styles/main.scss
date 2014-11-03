@@ -18,6 +18,11 @@ html, body {
   height: 100%;
 }
 
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 figure {
   margin: 0;
 }

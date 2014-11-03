@@ -29,6 +29,8 @@
       templateUrl: 'listings.html'
     });
 
+     $urlRouterProvider.when('', '/options');
+
   });
 
 })();
