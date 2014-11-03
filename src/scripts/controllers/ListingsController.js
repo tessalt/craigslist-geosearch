@@ -9,7 +9,7 @@ var ListingsController = function($scope, $state, $http) {
   $http.get('/scraper/cl_listings', {
     params: $scope.options
   }).success(function(data){
-    console.log(data);
+    $scope.listings = data;
   });
 
 }

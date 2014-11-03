@@ -19,7 +19,6 @@ Scraper.prototype.fetch = function() {
   });
   var uri = 'http://' + this.options.city + '.craigslist.ca/jsonsearch/apa?' + params;
   this.extractListings(uri).then(function(){
-    console.log('done');
     deferred.resolve(self.listings);
   }, function(reason){
     deferred.reject(reason);
@@ -28,7 +27,6 @@ Scraper.prototype.fetch = function() {
 }
 
 Scraper.prototype.extractListings = function(uri) {
-  console.log('fetching');
   var self = this;
   var options = {
     uri: uri,

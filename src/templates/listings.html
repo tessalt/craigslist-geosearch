@@ -1,4 +1,13 @@
 <div ng-controller="ListingsController">
 <h1>listings</h1>
-<button ng-click="editOptions()">edit</button>
+
+<ul>
+  <li ng-repeat="listing in listings">
+    <img ng-src="{{listing.ImageThumb}}">
+    <a href="{{listing.PostingURL}}">{{listing.PostingTitle}}</a>
+    <strong>{{listing.Ask}}</strong>
+  </li>
+</ul>
+
+<button ng-click="editOptions()">edit options</button>
 </div>
