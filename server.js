@@ -1,7 +1,11 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    path = require('path');
+    path = require('path'),
+    Q = require('q'),
+    moment = require('moment'),
+    Scraper = require('./server/modules/scraper');
 
+var request = Q.denodeify(require('request'));
 
 var app = express();
 
@@ -15,4 +19,13 @@ var server = app.listen(port,  function() {
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
+});
+
+app.get('/scraper/cl_listings', function(req, res){
+
+  var parser = new Scraper(req.query);
+  parser.fetch().then(function(json){
+    res.send(json);
+  });
+
 });

@@ -14,15 +14,15 @@
 
   app.controller('OptionsController', ['$scope', '$state', OptionsController]);
 
-  app.controller('ListingsController', ['$scope', '$state', ListingsController]);
+  app.controller('ListingsController', ['$scope', '$state', '$http', ListingsController]);
 
   app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('options', {
-      url: '/options?coordinates&maxprice&minrooms',
+      url: '/options?coordinates&maxprice&minrooms&city',
       templateUrl: 'options.html'
     }).state('listings', {
-      url: '/listings?coordinates&maxprice&minrooms',
+      url: '/listings?coordinates&maxprice&minrooms&city',
       templateUrl: 'listings.html'
     });
 

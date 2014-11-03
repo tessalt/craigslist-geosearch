@@ -1,6 +1,17 @@
 var OptionsController = function($scope, $state) {
 
-  $scope.options = $state.params || {};
+  var defaults = {
+    city: 'toronto',
+    minrooms: 1,
+    maxprice: null,
+    coordinates: []
+  }
+
+  $scope.options = $state.params;
+
+  for (var prop in $scope.options) {
+    $scope.options[prop] = $scope.options[prop] ? $scope.options[prop] : defaults[prop];
+  }
 
   var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
