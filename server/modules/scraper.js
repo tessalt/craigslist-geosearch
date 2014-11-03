@@ -1,15 +1,11 @@
 var Q = require('q'),
-    moment = require('moment'),
-    rp = require('request-promise'),
     request = require('request'),
     querystring = require('querystring');
 
 
 var Scraper = function(options) {
   this.options = options;
-  this.json = {
-    listings: []
-  };
+  this.listings = [];
   this.rootUrl = 'http://' + this.options.city + '.craigslist.ca';
 }
 
@@ -23,7 +19,8 @@ Scraper.prototype.fetch = function() {
   });
   var uri = 'http://' + this.options.city + '.craigslist.ca/jsonsearch/apa?' + params;
   this.extractListings(uri).then(function(){
-    deferred.resolve(self.json);
+    console.log('done');
+    deferred.resolve(self.listings);
   }, function(reason){
     deferred.reject(reason);
   });
@@ -41,7 +38,7 @@ Scraper.prototype.extractListings = function(uri) {
     var entries = JSON.parse(res[0].body);
     return Q.all(entries[0].map(function(entry){
       if (!entry.url){
-        self.json.listings.push(entry);
+        self.listings.push(entry);
         return null;
       } else {
         return self.extractListings(self.rootUrl + entry.url);

@@ -3,9 +3,8 @@ var express = require('express'),
     path = require('path'),
     Q = require('q'),
     moment = require('moment'),
-    Scraper = require('./server/modules/scraper');
-
-var request = Q.denodeify(require('request'));
+    Scraper = require('./server/modules/scraper'),
+    Filter = require('./server/modules/filter');
 
 var app = express();
 
@@ -24,8 +23,12 @@ app.get('/', function(req, res){
 app.get('/scraper/cl_listings', function(req, res){
 
   var parser = new Scraper(req.query);
-  parser.fetch().then(function(json){
-    res.send(json);
+
+  var filter = new Filter(req.query.coordinates);
+
+  parser.fetch().then(function(listings){
+    var filtered = filter.geoFilter(listings);
+    res.send(filtered);
   });
 
 });
