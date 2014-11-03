@@ -647,12 +647,22 @@
 .leaflet-oldie .leaflet-draw-toolbar {
   border: 1px solid #999; }
 
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0; }
 
 html, body {
   height: 100%; }
+
+figure {
+  margin: 0; }
 
 #map {
   width: 50%;
@@ -662,3 +672,10 @@ html, body {
 #options {
   width: 50%;
   float: right; }
+
+.container {
+  overflow: hidden; }
+
+.col-half {
+  width: 50%;
+  float: left; }
