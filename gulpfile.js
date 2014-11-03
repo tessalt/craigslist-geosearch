@@ -3,7 +3,6 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   concat = require('gulp-concat'),
   cache = require('gulp-cache'),
-  declare = require('gulp-declare'),
   browserify = require('gulp-browserify'),
   wrap = require('gulp-wrap'),
   del = require('del');
