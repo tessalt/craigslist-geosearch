@@ -19,6 +19,7 @@ Scraper.prototype.fetch = function() {
   });
   var uri = 'http://' + this.options.city + '.craigslist.ca/jsonsearch/apa?' + params;
   this.extractListings(uri).then(function(){
+    console.log('http requests resolved');
     deferred.resolve(self.listings);
   }, function(reason){
     deferred.reject(reason);
