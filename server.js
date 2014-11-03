@@ -2,7 +2,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     Q = require('q'),
-    moment = require('moment'),
+    request = require('request'),
     Scraper = require('./server/modules/scraper'),
     Filter = require('./server/modules/filter');
 
@@ -31,4 +31,12 @@ app.get('/scraper/cl_listings', function(req, res){
     res.send(filtered);
   });
 
+});
+
+app.get('/previews/:id', function(req, res){
+  var url = 'http://toronto.en.craigslist.org/tor/apa/' + req.params.id + '.html';
+
+  request.get(url, function(error, response, body){
+    res.send(body);
+  });
 });

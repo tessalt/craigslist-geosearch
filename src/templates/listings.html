@@ -3,11 +3,12 @@
 
 <ul>
   <li ng-repeat="listing in listings">
-    <img ng-src="{{listing.ImageThumb}}">
-    <a href="{{listing.PostingURL}}">{{listing.PostingTitle}}</a>
-    <strong>{{listing.Ask}}</strong>
+    <!-- <listing-item listing="listing"></listing-item> -->
+    <a ng-href="#/listings/{{listing.PostingID}}">{{listing.PostingTitle}}</a>
   </li>
 </ul>
+
+<div ui-view></div>
 
 <button ng-click="editOptions()">edit options</button>
 </div>

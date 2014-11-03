@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('copy', function() {
-  return gulp.src(['index.html', 'templates/*.html'], {cwd: src})
+  return gulp.src(['index.html', 'templates/*.html', 'test.json'], {cwd: src})
   .pipe(gulp.dest(dist));
 });
 
